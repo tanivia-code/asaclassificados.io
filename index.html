@@ -1,47 +1,590 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <title>ASA Classificados</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style type="text/css" media="screen and (min-width:213px)">
+    <meta name="viewport" media="width-device-width, initial-scale=1 maximum-scale=1"/>
+    <meta name="viewport" media="max-width=480"> html * {
+        position: relative;
+        margin: 0;
+    }
+    
+    body {
+        max-height: 100%;
+        width: 100%;
+        background-color: #ffffff;
+        font-family: 'Rubik', sans-serif;
+        position: relative;
+        margin: 0;  
+    }
+
+    .cabecalho {
+    display: flex;
+    flex-direction: column;;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    background-color: #063b7c;
+    width: 100%;
+    text-align: center;
+   }
+
+    .imgCabecalho {
+        max-width: 100%;
+        align-items: center;
+    }
+
+    #fontCabecalho {
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold; 
+        padding: 0.3em; 
+    }
+
+    .categorias {
+        color: red;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    p {
+        padding: 0.3em;
+    }
+
+    .anuncios {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.3em;
+        margin: 0.5em;
+    }
+
+    .anuncioItemComida {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #FDDFDF;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #FDDFDF;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioComida {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(252, 144, 144);
+    }
+
+    .anuncioItemImovel {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #bfffce;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #bfffce;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioImovel {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(84, 255, 124);
+    }
+
+    .anuncioItemModa {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #dbd1ff;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #dbd1ff;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioModa {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(99, 56, 255);
+    }
+
+    .anuncioItemCom {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #ccd6de;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #ccd6de;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioCom {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(104, 170, 222);
+    }
+
+    .anuncioItemInfo {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #a1ffeb;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #a1ffeb;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioInfo {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(54, 255, 212);
+    }
+
+    .anuncioItemDiversao {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #ffdfb0;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #ffdfb0;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioDiversao {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(255, 180, 69);
+    }
+
+    .anuncioItemFina {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #dbc7a2;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #dbc7a2;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioFina {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(219, 165, 64);
+    }
+
+    .anuncioItemSaude {
+        max-width: 100%;  
+        margin-bottom: 0.3em;
+        background: #99d4ff;
+        padding: 0.3em;
+        margin-right: 0.3rem;
+        margin-left: 0.3em;  
+        border: 1px #99d4ff;
+        border-radius: 20px 20px 0 20px;  
+        overflow: hidden;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+    }
+
+    .imgAnuncioSaude {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        box-shadow: 15px -7px 7px rgb(54, 171, 255);
+    }
+
+    #anuncio {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bolder;
+        color: #063b7c;
+
+    }
+
+    #anunciotexto {
+        text-align: justify;
+        color: #252525;
+    }
+
+    .a3 {
+        font-family: "Roboto", sans-serif;
+        color: #0000EE;
+        text-decoration: underline;   
+    }
+
+    .footer {
+        position: relative;
+        margin: 0;
+    }
+
+    #assoc {
+        font-weight: bold;
+    }
+
+    h4 {
+        font-family: "Roboto", sans-serif;
+        color: #ffffff;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+
+    a {
+        font-family: "Roboto", sans-serif;
+        color: whitesmoke;
+        text-decoration: none;
+    }
+
+    .icon {
+        max-width: 35px;
+        overflow: hidden;
+        vertical-align: middle;
+        padding: 0.3em;
+    }
+
+    .rodape {
+        display: grid;
+        float: flex;
+        width: 100%;
+	    background-color: #424242;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 5px;
+        font-family: "Roboto", sans-serif;
+        color: whitesmoke;
+        margin: 0;
+        padding: 0.3em;
+
+    }
+
+    .header {
+        display: grid;
+        float: flex;
+        width: 100%;
+        background-color: #252525;
+        grid-template-columns: 1fr;
+        grid-row: repeat(2, 1fr);
+        margin: 0;
+        padding: 0.3em;
+    }
+
+    #fontHeader {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        color: #f5f5f5;
+        padding: 0.3em;
+    }
+
+    #textRodape {
+        padding: 0.3em;
+        text-align: left;
+        margin: 0;
+    }
+
+    .a2 {
+        font-family: "Roboto", sans-serif;
+        color:#424242;
+        text-align: right;
+        text-decoration: none;   
+    }
+
+    .a4 {
+        font-family: "Roboto", sans-serif;
+        color:#424242;
+        text-align: center;
+        text-decoration: none;   
+    }
+    
+
+     @media(max-width:480px){
+
+   .anuncios {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+   .rodape {
+       grid-template-columns: repeat(1, 1fr);
+    }
 </head>
 <body>
-<div class="a4"><a href="%SHOWEDITION%" class="a4">Visualização Alternativa</a></div>
-<div class="cabecalho">
+ASA CLASSIFICADOS
+<div class="a4"><a href="%SHOWEDITION%" class="a4">Visualiza&ccedil;&atilde;o Alternativa</a></div>
+<div class="cabecalho" id="fontCabecalho">
+<div class="column">
+<div class="row"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/asaclass2924032020_01jpg.png" class="imgCabecalho" id="ext-gen2131" /></div>
 <div class="row">
-<p><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/asaclass2924032020_01jpg.png?_dc=1588873524077" class="imgCabecalho"></p>
-</div>
-<div class="row"><p id="fontCabecalho">Edição n.° 40 — 9 de maio de 2020</p>
+<p>Edi&ccedil;&atilde;o n.&deg; 50 &mdash; 1.&ordm; de agosto de 2020</p>
 </div>
 </div>
-<br>
-<div class="servicos">TELE-ENTREGA E SERVIÇOS ON-LINE
 </div>
-<br>
+<br />
+<div class="categorias">Acess&oacute;rios, Beleza e Moda</div>
 <div class="anuncios">
-    <div class="anuncioItem"><p><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/ribamarquitutes.png" class="imgAnuncio"></p><p id="anuncio">Ribamar Quitutes</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561992309985" class="a3">(61) 99230-9985</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/apoloniabolsas.png" class="imgAnuncio"></p><p id="anuncio">Apolonia Bolsas e capas para celular</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561999737287" class="a3">(61) 99973-7287</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/dicaju.png" class="imgAnuncio"></p><p id="anuncio">Di Caju</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561998071973" class="a3">(61) 99807-1973</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/drogasil.png" class="imgAnuncio"></p><p id="anuncio">Farmácia 24h</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561983063946" class="a3">(61) 98306-3946</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/quitandinhacafe.png" class="imgAnuncio"></p><p id="anuncio">Quitandinha Café</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561998709001" class="a3">(61) 99870-9001</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/sorverteriaaoquadrado.png" class="imgAnuncio"></p><p id="anuncio">Sorveteria ao quadrado</p>
-        <p>(61) 3297-6103</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/anapaulapersonal.png" class="imgAnuncio"></p><p id="anuncio">Personal Trainer e Fisioterapeuta</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561993063946" class="a3">(61) 98306-3946</a></p></div>
-    <div class="anuncioItem"><p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/fascinatus.png" class="imgAnuncio"></p><p id="anuncio">Facinatus</p>
-        <p><a href="https://api.whatsapp.com/send?phone=5561996892116" class="a3">(61) 99689-2116</a></p></div>
+<div class="anuncioItemModa">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/apoloniabolsas.png" class="imgAnuncioModa" alt="Apolonia Bolsas" style="max-height: 190px;" id="ext-gen2975" /></p>
+<p id="anuncio">APOLONIA<br />BOLSAS E CAPAS PARA CELULAR</p>
+<p id="anunciotexto">Bolsas nunca s&atilde;o demais! Ainda mais agora que a gente precisa ter o cuidado de higienizar sempre.<br /><br />Apolonia vende artigos lind&iacute;ssimos e capinhas para telefones m&oacute;veis para proteger seus pertences e sua sa&uacute;de sem repetir nenhum artigo durante a semana.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999737287" class="a3">(61) 99973-7287</a></p>
 </div>
-<!-- Rodape Padrao emm --> <br />
+<div class="anuncioItemModa">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/bijusdakatia.png?_dc=1595450018046" class="imgAnuncioModa" alt="Bijus da K&aacute;tia" style="max-height: 190px;" id="ext-gen2165" width="142" height="142" align="none" /></p>
+<p id="anuncio">Bijus da k&aacute;tia</p>
+<p id="anunciotexto">Pe&ccedil;as charmosas e de personalidade para o seu visual.<br /><br />K&aacute;tia produz pe&ccedil;as &uacute;nicas e de muito bom gosto para deixar o seu <em>look</em> ainda mais de acordo com as tend&ecirc;ncias da moda sem abrir m&atilde;o de caracter&iacute;sticas cl&aacute;ssicas consagradas.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999737287" class="a3">(61) 99973-7287</a></p>
+</div>
+<div class="anuncioItemModa">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/fascinatus.png?_dc=1595602372377" class="imgAnuncioModa" alt="Fascinatus" style="max-height: 190px;" id="ext-gen3334" width="142" height="142" align="none" /></p>
+<p id="anuncio">FACINATUS</p>
+<p id="anunciotexto">Cerca de 200 produtos para atender suas necessidades de cuidados pessoais produzidos especialmente para voc&ecirc;.</p>
+<p id="anunciotexto">A Fascinatus possui em sua linha de cosm&eacute;ticos maquiagens, hidratantes, tratamentos capilares e muitos outros para atender homens e mulheres que se amam e se cuidam.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561996892116" class="a3">(61) 99689-2116</a></p>
+</div>
+</div>
+<br />
+<div class="categorias">Comida, Refei&ccedil;&otilde;es e G&ecirc;neros Aliment&iacute;cios</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemComida">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/arraia_atelie_da_cozinha.png?_dc=1594845493072" class="imgAnuncioComida" alt="Arrai&aacute; Ateli&ecirc; da Cozinha" style="max-height: 190px;" id="ext-gen4065" width="142" height="142" align="none" /></p>
+<p id="anuncio">Arrai&aacute; ateli&ecirc; da cozinha</p>
+<p id="anunciotexto">Cestas pequenas e para toda a fam&iacute;lia celebrar com quent&atilde;o, chocolate quente, arroz carreteiro, cachorro quente, cocada, bolo de milho, pipoca, canjica e muito mais!</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999919677" class="a3">(61) 99991-9677</a></p>
+</div>
+<div class="anuncioItemComida">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/dicaju.png" class="imgAnuncioComida" alt="DiCaju" style="max-height: 190px;" id="ext-gen3693" /></p>
+<p id="anuncio">DI CAJU</p>
+<p id="anunciotexto">A castanha de caju possui &eacute; uma oleaginosa que &eacute; fonte de vitaminas E e do complexo B. Tamb&eacute;m &eacute; fonte de minerais como zinco, pot&aacute;ssio, mangan&ecirc;s, ferro, cobre e sel&ecirc;nio.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561998071973" class="a3">(61) 99807-1973</a></p>
+</div>
+<div class="anuncioItemComida">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/docebeijo.png?_dc=1588961202187" class="imgAnuncioComida" alt="Ana Paula Sobremesa na Ta&ccedil;a" id="ext-gen1588" width="142" height="142" align="none" style="max-height: 190px;" /></p>
+<p id="anuncio">Doce Beijo SOBREMESA NA TA&Ccedil;A</p>
+<p id="anunciotexto">Deliciosas sobremesas preparadas para encantar al&eacute;m do paladar, a vis&atilde;o.</p>
+<p id="anunciotexto">Excelentes op&ccedil;&otilde;es de sabores e apresenta&ccedil;&otilde;es para ado&ccedil;ar a vida e trazer mais requinte e sofistica&ccedil;&atilde;o &agrave; mesa.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561984742006" class="a3">(61) 98474-2006</a></p>
+</div>
+<div class="anuncioItemComida">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/quitandinhacafe.png" class="imgAnuncioComida" alt="Quitandinha Caf&eacute;" style="max-height: 190px;" id="ext-gen4052" /></p>
+<p id="anuncio">QUITANDINHA CAF&Eacute;</p>
+<p id="anunciotexto">Deliciosos caf&eacute; da manh&atilde; e almo&ccedil;o!</p>
+<p id="anunciotexto">Todos os dias, comida quentinha e saborosa com aquele gostinho caseiro no conforto do seu lar.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561998709001" class="a3">(61) 99870-9001</a></p>
+</div>
+<div class="anuncioItemComida">
+<p><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/ribamarquitutes.png" class="imgAnuncioComida" alt="Ribamar Quitutes" style="max-height: 190px;" id="ext-gen4232" /></p>
+<p id="anuncio">RIBAMAR QUITUTES</p>
+<p id="anunciotexto">Deliciosos buf&ecirc;s tem&aacute;ticos, cestas de festa junina, kit feijoada, kit marmitas e v&aacute;rias outras op&ccedil;&otilde;es de card&aacute;pio para diversas ocasi&otilde;es.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561992309985" class="a3">(61) 99230-9985</a></p>
+</div>
+<div class="anuncioItemComida">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/sorverteriaaoquadrado.png" class="imgAnuncioComida" alt="Sorvete ao Quadrado" style="max-height: 190px;" id="ext-gen4412" /></p>
+<p id="anuncio">SORVETE AO QUADRADO</p>
+<p id="anunciotexto">Sabores tradicionais e do cerrado feitos especialmente para voc&ecirc; com apresenta&ccedil;&atilde;o original, no conforto e seguran&ccedil;a do seu lar.</p>
+<p id="anunciotexto">&Eacute; mais que sorvete. &Eacute; uma experi&ecirc;ncia!</p>
+<p><a href="https://api.whatsapp.com/send?phone=556132976103" class="a3">(61) 3297-6103</a></p>
+</div>
+</div>
+<br />
+<div class="categorias">Comunica&ccedil;&atilde;o e Informa&ccedil;&atilde;o</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemCom">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/clariarasa.png?_dc=1595447114314?_dc=1595450742352" class="imgAnuncioCom" alt="Clariar Comunica&ccedil;&atilde;o Visual" style="max-height: 190px;" id="ext-gen1323" width="142" height="142" align="none" /></p>
+<p id="anuncio">Clariar</p>
+<p id="anunciotexto">Qualidade em impress&atilde;o de pequenos e grandes formatos, cart&otilde;es de visita, brindes personalizados, fachadas e pain&eacute;is, panfletos, banners e muito mais.</p>
+<p id="anunciotexto">Solicite j&aacute; seu or&ccedil;amento!</p>
+<p>(61) 3347-3313</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999221420" class="a3">(61) 99922-1420</a></p>
+<p>E-mail: <a haref="mailto:atendimentoclariar@gmail.com" class="a3">atendimentoclariar@gmail.com</a></p>
+</div>
+<div class="anuncioItemCom">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/correiosasa.png?_dc=1595450415945" class="imgAnuncioCom" alt="Correios AGF Cruzeiro" style="max-height: 190px;" id="ext-gen1323" width="142" height="142" align="none" /></p>
+<p id="anuncio">Correios AGF Cruzeiro</p>
+<p id="anunciotexto">Precisa enviar documentos e objetos de maneira segura com a confiabilidade e comodidade?<br /><br />A Ag&ecirc;ncia dos Correios do Cruzeiro est&aacute; preparada para atend&ecirc;-lo respeitando todos os protocolos sanit&aacute;rios e profissionais no tratamento de sua correspond&ecirc;ncia.</p>
+<p>(61) 3465-2411</p>
+<p>E-mail: <a href="mailto:cruzeironovo@gmail.com" class="a3">cruzeironovo@gmail.com</a></p>
+</div>
+<div class="anuncioItemCom">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/querubinsasa.png?_dc=1595451250572?_dc=1595451253819" class="imgAnuncioCom" alt="Gr&aacute;fica e Editora Querubins" style="max-height: 190px;" id="ext-gen1323" width="142" height="142" align="none" /></p>
+<p id="anuncio">Gr&aacute;fica querubins</p>
+<p id="anunciotexto">Servi&ccedil;os gr&aacute;ficos diversos e de alta qualidade com prestatividade, melhor custo benef&iacute;cio e tradi&ccedil;&atilde;o.<br /><br />Calend&aacute;rios, livros, jornais, revistas e v&aacute;rios outros tipos de publica&ccedil;&otilde;es produzidos com carinho e entrega no prazo.</p>
+<p id="anunciotexto">Materialize sua criatividade!</p>
+<p>(61) 3347-3313</p>
+<p>Site: <a href="http://www.graficaquerubins.com.br" class="a3">http://www.graficaquerubins.com.br</a></p>
+</div>
+</div>
+<br />
+<div class="categorias">Divers&atilde;o, Lazer e Turismo</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemDiversao">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/conmilturismo.png?_dc=1589090233253" class="imgAnuncioDiversao" alt="Conmil" id="ext-gen3378" align="none" /></p>
+<p id="anuncio">Conmil Turismo</p>
+<p id="anunciotexto">Pacotes e viagens sob medida para voc&ecirc; e para os que voc&ecirc; ama, com muito conforto e seguran&ccedil;a.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561982877523" class="a3">(61) 98287-7523</a></p>
+<p>E-mail: <a href="&quot;mailto:conmil.turismo@gmail.com" class="a3">conmil.turismo@gmail.com</a></p>
+</div>
+<div class="anuncioItemDiversao">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/ctc.png?_dc=1595601649862" class="imgAnuncioDiversao" alt="Hotel CTC" id="ext-gen3782" width="142" height="142" align="none" /></p>
+<p id="anuncio">CTC Termas clube hotel</p>
+<p id="anunciotexto">Localizado na regi&atilde;o central de Caldas Novas (GO), o CTC Termas Clube Hotel proporciona uma experi&ecirc;ncia inesquec&iacute;vel!</p>
+<p><a href="https://api.whatsapp.com/send?phone=556434531974" class="a3">(64) 3453-1974</a></p>
+<p>E-mail: <a href="mailto:reserva@hotelctc.com.br" class="a3">reserva@hotelctc.com.br</a></p>
+</div>
+<div class="anuncioItemDiversao">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/culturaturismo.png?_dc=1589090846433" class="imgAnuncioDiversao" alt="Cultura Turismo" id="ext-gen1588" align="none" /></p>
+<p id="anuncio">Cultura Turismo</p>
+<p id="anunciotexto" :="" justify="">A Cultura Viagens atua h&aacute; mais de 16 anos e &eacute; composta por profissionais competentes e altamente qualificados, especialistas na elabora&ccedil;&atilde;o e execu&ccedil;&atilde;o de roteiros de viagens. Melhores solu&ccedil;&otilde;es para viagens em fam&iacute;lia, em grupos e para o turismo de neg&oacute;cios.</p>
+<p>(61) 33271864</p>
+<p>E-mail: <a href="mailto:atendimento@culturanegocios.com" class="a3">atendimento@culturanegocios.com</a></p>
+</div>
+<div class="anuncioItemDiversao">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/fivetour.png?_dc=1595603761341" class="imgAnuncioDiversao" alt="Five Tour Turismo" id="ext-gen4161" align="none" width="142" height="142" /></p>
+<p id="anuncio">Five Tour Turismo</p>
+<p id="anunciotexto">A Five Tour trata cada viagem sua como a mem&oacute;ria mais feliz da sua vida. Viagens e experi&ecirc;ncias incr&iacute;veis ao seu alcance!</p>
+<p>(61) 3344-5970</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561993491153" class="a3">(61) 99349-1153</a></p>
+<p>Site: <a href="http://fivetour.com.br/" class="a3">http://fivetour.com.br</a></p>
+</div>
+<div class="anuncioItemDiversao">
+<p><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/hotelgaiaporto.png?_dc=1589089614981" class="imgAnuncioDiversao" alt="Hotel Gaia-Porto" id="ext-gen2628" width="142" height="142" align="none" /></p>
+<p id="anuncio">Hotel Gaia-Porto</p>
+<p id="anunciotexto">Hotel Gaia-Porto est&aacute; situado em Vila Nova de Gaia, em Portugal. Um dos centros de produ&ccedil;&atilde;o de vinho do porto, Gaia est&aacute; repleta de adegas e v&aacute;rias atra&ccedil;&otilde;es tur&iacute;sticas como a praia de Madalena.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561981168577" class="a3">(61) 98116-8577</a></p>
+</div>
+<div class="anuncioItemDiversao">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/minifazendinha.png?_dc=1589090774679" class="imgAnuncioDiversao" alt="Mini-Fazendinha Educativa" id="ext-gen3595" align="none" /></p>
+<p id="anuncio">Mini-Fazendinha Educativa</p>
+<p id="anunciotexto">A Mini Fazenda proporciona um pedacinho da realidade do campo aqui pertinho de voc&ecirc;.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999771268" class="a3">(61) 99977-1268</a></p>
+<p><a href="https://api.whatsapp.com/send?phone=556198150-1709" class="a3">(61) 98150-1709</a></p>
+</div>
+</div>
+<br />
+<div class="categorias">Finan&ccedil;a e Neg&oacute;cios</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemFina">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/brasilmetodoasa.png?_dc=1595527376016" class="imgAnuncioFina" alt="Brasil M&eacute;todo Corretora de Seguros" style="max-height: 190px;" id="ext-gen1874" width="142" height="142" align="none" /></p>
+<p id="anuncio">Brasil M&eacute;todo Corretora de seguros</p>
+<p id="anunciotexto">A Brasil M&eacute;todo existe para te dar apoio nos momentos que voc&ecirc; mais precisa de ajuda.<br /><br />Seguro autom&oacute;vel, seguro condom&iacute;nio, plano odontol&oacute;gico, seguro residencial, plano de sa&uacute;de e seguro de vida.</p>
+<p>(61) 3274-5212<br /><br />0800-601-7286</p>
+</div>
+<div class="anuncioItemFina">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/sicoobasa.png?_dc=1595451966368?_dc=1595527379886" class="imgAnuncioFina" alt="Sicoob" style="max-height: 190px;" id="ext-gen2072" width="142" height="142" align="none" /></p>
+<p id="anuncio">Sicoob</p>
+<p id="anunciotexto">O Sicoob Legislativo possui linhas de servi&ccedil;os e produtos desenvolvidos especialmente para o servidor.<br /><br />Atendimento &aacute;gil e confi&aacute;vel. Trate do seu patrim&ocirc;nio e das suas finan&ccedil;as com quem reconhece o seu valor.<br /><br /></p>
+<p>(61) 3225-2007</p>
+<p>E-mail: <a href="mailto:sicooblegislativo@sicooblegislativo.coop.br" class="a3">sicooblegislativo@sicooblegislativo.coop.br</a></p>
+</div>
+</div>
+<br />
+<div class="categorias">Im&oacute;vel</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemImovel">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/aluguel_apartamento_asa_sul_15072020.PNG?_dc=1594843330269" class="imgAnuncioImovel" alt="Aluguel Apartamento Asa Sul" style="max-height: 190px;" id="ext-gen3651" width="142" height="142" align="none" /></p>
+<p id="anuncio">aluguel apartamento asa sul</p>
+<p id="anunciotexto">Apartamento na SQS 408, 1.&ordm; Andar, 2 quartos, sendo uma su&iacute;te com <em>closet</em>, cozinha americana, pintado, pronto para morar. Contato: Meg 999775228.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999775228" class="a3">(61) 99977-5228</a></p>
+<p>E-mail:&nbsp;<a href="mailto:megvicente19@gmail.com" class="a3">megvicente19@gmail.com</a></p>
+</div>
+</div>
+<br />
+<div class="categorias">Inform&aacute;tica, Eletr&ocirc;nica e Tecnologia</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemInfo">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/infojetasa.png?_dc=1595446974283" class="imgAnuncioInfo" alt="Apolonia Bolsas" style="max-height: 190px;" id="ext-gen1515" width="142" height="142" align="none" /></p>
+<p id="anuncio">Infojet</p>
+<p id="anunciotexto">Equipe preparada para fazer reparos e atualiza&ccedil;&otilde;es de seus equipamentos de inform&aacute;tica e eletr&ocirc;nicos (celulares, computadores, impressoras e notebooks).</p>
+<p id="anunciotexto">Loja de suprimentos para seu escrit&oacute;rio.</p>
+<p>(61) 3382-7765</p>
+</div>
+</div>
+<br />
+<div class="categorias">Sa&uacute;de e Bem-estar</div>
+<br />
+<div class="anuncios">
+<div class="anuncioItemSaude">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/ana_paula_fisioterapia.png?_dc=1596052333397" class="imgAnuncioSaude" alt="Fascinatus" style="max-height: 190px;" id="ext-gen3270" width="142" height="142" align="none" /></p>
+<p id="anuncio">ana paula ribeiro da silva<br />fisioterapeuta</p>
+<p id="anunciotexto">Corre&ccedil;&atilde;o postural, alongamento, hidroterapia e drenagem linf&aacute;tica com seguran&ccedil;a e obedecendo aos protocolos sanit&aacute;rios.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561995559191" class="a3" target="_blank" rel="noopener noreferrer">(61) 99555-9191</a></p>
+</div>
+<div class="anuncioItemSaude">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/camilafigueiredoreiki.png?_dc=1594842710468" class="imgAnuncioSaude" alt="Fascinatus" style="max-height: 190px;" id="ext-gen3270" width="142" height="142" align="none" /></p>
+<p id="anuncio">Camilla Figueiredo<br />Reiki &amp; thetahealeR<sup>&reg;</sup></p>
+<p id="anunciotexto">Reiki, Reiki com cristais e Theta Healer<sup>&reg;</sup>.<br /><br />Equil&iacute;brio &eacute; a chave para melhora da qualidade de vida tanto f&iacute;sica quanto mental.<br /><br />Marque seu hor&aacute;rio pelos seguintes canais:</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561983063946" class="a3" target="_blank" rel="noopener noreferrer">(61) 98306-3946</a></p>
+<p>E-mail:&nbsp;<a href="mailto:camillafandrade4@gmail.com" class="a3">camillafandrade4@gmail.com</a></p>
+</div>
+<div class="anuncioItemSaude">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/drogasil.png" class="imgAnuncioSaude" alt="Drogasil" style="max-height: 190px;" /></p>
+<p id="anuncio">FARM&Aacute;CIA 24H</p>
+<p id="anunciotexto">Farm&aacute;rcia 24h com diversas op&ccedil;&otilde;es de descontos para usu&aacute;rios do LegisClub Brasil.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561983063946" class="a3">(61) 98306-3946</a></p>
+</div>
+<div class="anuncioItemSaude">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/maosdeanjo.png?_dc=1589090048103" class="imgAnuncioSaude" alt="M&atilde;os de Anjo" id="ext-gen2998" width="142" height="142" align="none" /></p>
+<p id="anuncio">M&atilde;os de Anjo</p>
+<p id="anunciotexto">Espa&ccedil;o terap&ecirc;utico M&atilde;os de Anjo oferece os seguintes servi&ccedil;os: drenagem linf&aacute;tica; massagem modeladora; massagem relaxante; quick massagem; libera&ccedil;&atilde;o miofascial. Massagens terap&ecirc;uticas: Ayurveda; Tui-n&aacute;; Shiatsu e muito mais.</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561999581207" class="a3">(61) 99958-1207</a></p>
+</div>
+<div class="anuncioItemSaude">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/oculareasa.png?_dc=1595452262734" class="imgAnuncioSaude" alt="Oculare" style="max-height: 190px;" id="ext-gen3270" width="142" height="142" align="none" /></p>
+<p id="anuncio">Oculare oftalmologia</p>
+<p id="anunciotexto">Centro cl&iacute;nico especializado e atendimento humanizado agora traz a alternativa da teleconsulta.<br /><br />Exames oftalmol&oacute;gicos, ort&oacute;ptica, oftalmopediatria e reabilita&ccedil;&atilde;o visual.</p>
+<p>(61) 3242-4222</p>
+<p><a href="https://api.whatsapp.com/send?phone=5561996045844" class="a3">(61) 99604-5844</a></p>
+</div>
+<div class="anuncioItemSaude">
+<p id="anuncio"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/visao.png?_dc=1589090112553" class="imgAnuncioSaude" alt="Vis&atilde;o Hospital de Olhos" id="ext-gen3191" width="142" height="142" align="none" /></p>
+<p id="anuncio">Vis&atilde;o</p>
+<p id="anunciotexto">O Vis&atilde;o Hospital de Olhos inaugura mais um novo servi&ccedil;o na Unidade Asa Norte: Consultas emergenciais e de pronto atendimento.</p>
+<p>(61) 3038-8001</p>
+</div>
+</div>
 <div class="footer">
 <div class="header" id="fontHeader">
-    <div id="assoc">ASSOCIAÇÃO DOS SERVIDORES APOSENTADOS E PENSIONISTAS DA CÂMARA DOS DEPUTADOS</div>
-    <div>Funcionamento: de segunda à sexta, das 9 às 18h</div>
+<div id="assoc">ASSOCIA&Ccedil;&Atilde;O DOS SERVIDORES APOSENTADOS E PENSIONISTAS DA C&Acirc;MARA DOS DEPUTADOS</div>
+<div>Funcionamento: de segunda &agrave; sexta, das 9 &agrave;s 18h</div>
 </div>
 <div class="rodape">
-<div id="textRodape"><h4>MÍDIAS SOCIAIS</h4>
+<div id="textRodape">
+<h4>M&Iacute;DIAS SOCIAIS</h4>
 <div class="textRodape">
 <p><a href="https://www.facebook.com/ASACDbsb/"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/facebook.png?_dc=1588219522037" class="icon" />Facebook</a></p>
 </div>
@@ -52,22 +595,25 @@
 <p><a href="https://www.asacd.org.br/"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/site.png?_dc=1588219600570" class="icon" />www.asacd.org.br</a></p>
 </div>
 </div>
-<div id="textRodape"><h4>ENDEREÇO</h4>
-<p>SGAS 610 Conj. C Mód. 70</p>
+<div id="textRodape">
+<h4>ENDERE&Ccedil;O</h4>
+<p>SGAS 610 Conj. C M&oacute;d. 70</p>
 <p>Asa Sul</p>
-<p>Brasília - DF</p>
+<p>Bras&iacute;lia - DF</p>
 <p>70200-700</p>
 </div>
-<div id="textRodape"><h4>CONTATO</h4>
+<div id="textRodape">
+<h4>CONTATO</h4>
 <p><a href="https://api.whatsapp.com/send?phone=5561999518499"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/whatsapp.png?_dc=1588219631164" class="icon" />Contato pelo Whatsapp</a></p>
 <p><a href="mailto:secretaria@asacd.org.br"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/email.png?_dc=1588219649296" class="icon" />Contato via E-Mail</a></p>
 </div>
-<div id="textRodape"><h4>TELEFONES</h4>
+<div id="textRodape">
+<h4>TELEFONES</h4>
 <p><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/telefone.png?_dc=1588219673957" class="icon" />(61) 3244-6869</p>
 <p><a href="https://api.whatsapp.com/send?phone=5561999518499"><img src="https://associacaoasacd.emailmanager.com/files/virtual_disk/whatsapp.png?_dc=1588219698550" class="icon" />(61) 99951-8499</a></p>
 </div>
 </div>
-</footer>
 <div class="a2"><a href="%CANCEL%" class="a2">Descadastre-se</a></div>
+</div>
 </body>
 </html>
